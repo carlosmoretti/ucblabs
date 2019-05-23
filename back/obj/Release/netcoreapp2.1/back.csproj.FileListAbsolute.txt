@@ -1,0 +1,14 @@
+E:\repos\ucblabs\back\bin\Release\netcoreapp2.1\back.deps.json
+E:\repos\ucblabs\back\bin\Release\netcoreapp2.1\back.runtimeconfig.json
+E:\repos\ucblabs\back\bin\Release\netcoreapp2.1\back.runtimeconfig.dev.json
+E:\repos\ucblabs\back\bin\Release\netcoreapp2.1\back.dll
+E:\repos\ucblabs\back\bin\Release\netcoreapp2.1\back.pdb
+E:\repos\ucblabs\back\obj\Release\netcoreapp2.1\back.csprojAssemblyReference.cache
+E:\repos\ucblabs\back\obj\Release\netcoreapp2.1\back.csproj.CoreCompileInputs.cache
+E:\repos\ucblabs\back\obj\Release\netcoreapp2.1\back.RazorAssemblyInfo.cache
+E:\repos\ucblabs\back\obj\Release\netcoreapp2.1\back.RazorAssemblyInfo.cs
+E:\repos\ucblabs\back\obj\Release\netcoreapp2.1\back.AssemblyInfoInputs.cache
+E:\repos\ucblabs\back\obj\Release\netcoreapp2.1\back.AssemblyInfo.cs
+E:\repos\ucblabs\back\obj\Release\netcoreapp2.1\back.RazorTargetAssemblyInfo.cache
+E:\repos\ucblabs\back\obj\Release\netcoreapp2.1\back.dll
+E:\repos\ucblabs\back\obj\Release\netcoreapp2.1\back.pdb

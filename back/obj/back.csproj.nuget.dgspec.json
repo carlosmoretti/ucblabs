@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "E:\\labscontrol\\back\\back.csproj": {}
+    "E:\\repos\\ucblabs\\back\\back.csproj": {}
   },
   "projects": {
-    "E:\\labscontrol\\back\\back.csproj": {
+    "E:\\repos\\ucblabs\\back\\back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\labscontrol\\back\\back.csproj",
+        "projectUniqueName": "E:\\repos\\ucblabs\\back\\back.csproj",
         "projectName": "back",
-        "projectPath": "E:\\labscontrol\\back\\back.csproj",
+        "projectPath": "E:\\repos\\ucblabs\\back\\back.csproj",
         "packagesPath": "C:\\Users\\Moretti\\.nuget\\packages\\",
-        "outputPath": "E:\\labscontrol\\back\\obj\\",
+        "outputPath": "E:\\repos\\ucblabs\\back\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Moretti\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Moretti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,6 +56,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.9, )"
             }
           },
           "imports": [
