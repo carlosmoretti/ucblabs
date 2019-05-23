@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<div class="page-wrapper chiller-theme toggled bg-white">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+        <div class="sidebar-brand">
+            <a href="#">LabsControl</a>
+            <div id="close-sidebar">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+            alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">
+            Carlos Moretti
+          </span>
+          <span class="user-role">Analista de Sistemas</span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>Menu Principal</span>
+          </li>
+          <li class="sidebar-dropdown">
+            <a>
+                <i class="far fa-clock"></i>
+              <span>Agendamentos</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Agendar Laboratório</a>
+                </li>
+                <li>
+                  <a href="#">Mostrar Agendamentos</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a>
+              <i class="fas fa-user-plus"></i>
+              <span>Cadastros</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Pessoas
+                  </a>
+                </li>
+                <li>
+                  <a href="#">Itens de Configuração</a>
+                </li>
+                <li>
+                  <a href="#">Disciplinas</a>
+                </li>
+                <li>
+                  <a href="#">Tipos de Perfis</a>
+                </li>
+                <li>
+                  <a href="#">Blocos</a>
+                </li>
+                <li>
+                  <a href="#">Laboratórios</a>
+                </li>
+                <li>
+                  <a href="#">Fornecedores</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="header-menu">
+            <span>Administração</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-book"></i>
+              <span>Controle de Acesso</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a href="#">
+        <i class="fa fa-bell"></i>
+        <span class="badge badge-pill badge-warning notification">3</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-envelope"></i>
+        <span class="badge badge-pill badge-success notification">7</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-cog"></i>
+        <span class="badge-sonar"></span>
+      </a>
+      <a href="#">
+        <i class="fa fa-power-off"></i>
+      </a>
+    </div>
+  </nav>
+  <main class="page-content">
+      <div class="container-fluid">        
+        <router-outlet></router-outlet>
+      </div>
+  </main>
+</div>
