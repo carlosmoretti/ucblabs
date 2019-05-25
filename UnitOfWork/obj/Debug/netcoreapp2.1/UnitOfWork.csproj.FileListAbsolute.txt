@@ -1,0 +1,16 @@
+E:\repos\ucblabs\UnitOfWork\bin\Debug\netcoreapp2.1\UnitOfWork.deps.json
+E:\repos\ucblabs\UnitOfWork\bin\Debug\netcoreapp2.1\UnitOfWork.dll
+E:\repos\ucblabs\UnitOfWork\bin\Debug\netcoreapp2.1\UnitOfWork.pdb
+E:\repos\ucblabs\UnitOfWork\bin\Debug\netcoreapp2.1\DAL.dll
+E:\repos\ucblabs\UnitOfWork\bin\Debug\netcoreapp2.1\EFCore.dll
+E:\repos\ucblabs\UnitOfWork\bin\Debug\netcoreapp2.1\Entities.dll
+E:\repos\ucblabs\UnitOfWork\bin\Debug\netcoreapp2.1\EFCore.pdb
+E:\repos\ucblabs\UnitOfWork\bin\Debug\netcoreapp2.1\Entities.pdb
+E:\repos\ucblabs\UnitOfWork\bin\Debug\netcoreapp2.1\DAL.pdb
+E:\repos\ucblabs\UnitOfWork\obj\Debug\netcoreapp2.1\UnitOfWork.csprojAssemblyReference.cache
+E:\repos\ucblabs\UnitOfWork\obj\Debug\netcoreapp2.1\UnitOfWork.csproj.CoreCompileInputs.cache
+E:\repos\ucblabs\UnitOfWork\obj\Debug\netcoreapp2.1\UnitOfWork.AssemblyInfoInputs.cache
+E:\repos\ucblabs\UnitOfWork\obj\Debug\netcoreapp2.1\UnitOfWork.AssemblyInfo.cs
+E:\repos\ucblabs\UnitOfWork\obj\Debug\netcoreapp2.1\UnitOfWork.csproj.CopyComplete
+E:\repos\ucblabs\UnitOfWork\obj\Debug\netcoreapp2.1\UnitOfWork.dll
+E:\repos\ucblabs\UnitOfWork\obj\Debug\netcoreapp2.1\UnitOfWork.pdb

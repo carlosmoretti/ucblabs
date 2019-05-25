@@ -11,11 +11,17 @@ namespace back.Controllers
     [ApiController]
     public class AgendaController : ControllerBase
     {
+        UnitOfWork.Implementation.UoW _uow;
+        public AgendaController()
+        {
+            _uow = new UnitOfWork.Implementation.UoW();
+        }
+
         // GET: api/Agenda
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Entities.TipoPerfil> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _uow.TipoPerfil.GetAll();
         }
 
         // GET: api/Agenda/5
@@ -27,8 +33,10 @@ namespace back.Controllers
 
         // POST: api/Agenda
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(Entities.TipoPerfil tp)
         {
+            _uow.TipoPerfil.Add(tp);
+            _uow.Commit();
         }
 
         // PUT: api/Agenda/5

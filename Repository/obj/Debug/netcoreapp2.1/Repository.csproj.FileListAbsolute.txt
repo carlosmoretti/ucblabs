@@ -1,0 +1,9 @@
+E:\repos\ucblabs\Repository\obj\Debug\netcoreapp2.1\Repository.csproj.CoreCompileInputs.cache
+E:\repos\ucblabs\Repository\obj\Debug\netcoreapp2.1\Repository.AssemblyInfoInputs.cache
+E:\repos\ucblabs\Repository\obj\Debug\netcoreapp2.1\Repository.AssemblyInfo.cs
+E:\repos\ucblabs\Repository\bin\Debug\netcoreapp2.1\Repository.deps.json
+E:\repos\ucblabs\Repository\bin\Debug\netcoreapp2.1\Repository.dll
+E:\repos\ucblabs\Repository\bin\Debug\netcoreapp2.1\Repository.pdb
+E:\repos\ucblabs\Repository\obj\Debug\netcoreapp2.1\Repository.csprojAssemblyReference.cache
+E:\repos\ucblabs\Repository\obj\Debug\netcoreapp2.1\Repository.dll
+E:\repos\ucblabs\Repository\obj\Debug\netcoreapp2.1\Repository.pdb

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { formControlBinding } from '@angular/forms/src/directives/reactive_directives/form_control_directive';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-agendar',
@@ -9,7 +10,7 @@ import { formControlBinding } from '@angular/forms/src/directives/reactive_direc
 })
 export class AgendarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   public titulo: string;
 
@@ -22,6 +23,11 @@ export class AgendarComponent implements OnInit {
 
   ngOnInit() {
     this.titulo = "Reservar um laboratório..."
+
+    this.api.getAgenda()
+      .subscribe(res => {
+        console.log(res);
+      })
   }
 
 }

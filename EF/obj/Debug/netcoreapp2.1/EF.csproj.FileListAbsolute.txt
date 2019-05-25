@@ -1,0 +1,9 @@
+E:\repos\ucblabs\EF\obj\Debug\netcoreapp2.1\EF.csprojAssemblyReference.cache
+E:\repos\ucblabs\EF\obj\Debug\netcoreapp2.1\EF.csproj.CoreCompileInputs.cache
+E:\repos\ucblabs\EF\obj\Debug\netcoreapp2.1\EF.AssemblyInfoInputs.cache
+E:\repos\ucblabs\EF\obj\Debug\netcoreapp2.1\EF.AssemblyInfo.cs
+E:\repos\ucblabs\EF\bin\Debug\netcoreapp2.1\EF.deps.json
+E:\repos\ucblabs\EF\bin\Debug\netcoreapp2.1\EF.dll
+E:\repos\ucblabs\EF\bin\Debug\netcoreapp2.1\Entities.dll
+E:\repos\ucblabs\EF\bin\Debug\netcoreapp2.1\Entities.pdb
+E:\repos\ucblabs\EF\obj\Debug\netcoreapp2.1\EF.csproj.CopyComplete
