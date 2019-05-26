@@ -23,11 +23,7 @@ export class AgendarComponent implements OnInit {
 
   ngOnInit() {
     this.titulo = "Reservar um laboratório..."
-
-    this.api.getAgenda()
-      .subscribe(res => {
-        console.log(res);
-      })
+    this.api.getAgenda();
   }
 
 }
