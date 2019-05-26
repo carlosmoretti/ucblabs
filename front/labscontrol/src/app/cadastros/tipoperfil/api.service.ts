@@ -17,7 +17,10 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   AddTipoPerfil(tipoperfil) {
-    this.http.post(apiUrl, tipoperfil)
-      .subscribe(res => console.log(res));
+    return this.http.post(apiUrl, tipoperfil);
+  }
+
+  GetAll() {
+    return this.http.get(apiUrl);
   }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Controllers;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,7 @@ namespace back.Controllers
     [EnableCors("CORS")]
     [Route("api/[controller]")]
     [ApiController]
-    public class AgendaController : ControllerBase
+    public class AgendaController : BaseController
     {
         UnitOfWork.Implementation.UoW _uow;
         public AgendaController()
@@ -35,10 +36,14 @@ namespace back.Controllers
 
         // POST: api/Agenda
         [HttpPost]
-        public void Post(Entities.TipoPerfil tp)
+        public JsonResult Post(Entities.TipoPerfil tp)
         {
+            if (_uow.TipoPerfil.GetAll().Any(d => d.Nome == tp.Nome))
+                return Retorno(TipoRetornoEnum.NOK, "Já existe um usuário com este nome.");
+
             _uow.TipoPerfil.Add(tp);
-            _uow.Commit();
+
+            return Retorno(TipoRetornoEnum.OK, "Tipo de Perfil cadastrado com sucesso!");
         }
 
         // PUT: api/Agenda/5

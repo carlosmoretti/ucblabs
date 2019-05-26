@@ -19,11 +19,13 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@sweetalert2/ngx-sweetalert2": "^5.0.3",
     "angular2-materialize": "^15.1.10",
     "core-js": "^2.5.4",
     "materialize-css": "^1.0.0",
     "ng2-slim-loading-bar": "^4.0.0",
     "rxjs": "~6.3.3",
+    "sweetalert2": "^8.11.6",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
