@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AlertsComponent } from './alerts/alerts.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AlertsComponent } from './alerts/alerts.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

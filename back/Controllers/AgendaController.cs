@@ -22,9 +22,9 @@ namespace back.Controllers
 
         // GET: api/Agenda
         [HttpGet]
-        public IEnumerable<Entities.TipoPerfil> Get()
+        public JsonResult Get()
         {
-            return _uow.TipoPerfil.GetAll();
+            return GetResult<Entities.TipoPerfil>(_uow.TipoPerfil.GetAll().ToList());
         }
 
         // GET: api/Agenda/5
@@ -42,6 +42,7 @@ namespace back.Controllers
                 return Retorno(TipoRetornoEnum.NOK, "Já existe um usuário com este nome.");
 
             _uow.TipoPerfil.Add(tp);
+            _uow.Commit();
 
             return Retorno(TipoRetornoEnum.OK, "Tipo de Perfil cadastrado com sucesso!");
         }

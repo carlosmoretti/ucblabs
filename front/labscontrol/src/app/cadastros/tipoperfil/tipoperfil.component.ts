@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { ViewChild, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { ApiService } from './api.service';
 import { HttpClient } from '@angular/common/http';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2/swal.component'
-import Swal from 'sweetalert2';
-import { AlertsComponent } from '../../alerts/alerts.component'
+import { AlertsComponent } from '../../alerts/alerts.component';
 
 @Component({
   selector: 'app-tipoperfil',
   templateUrl: './tipoperfil.component.html',
   styleUrls: ['./tipoperfil.component.css']
 })
+
 export class TipoperfilComponent implements OnInit {
+
+  config: any;
 
   constructor(private apiService: ApiService, private http: HttpClient) { }
 
@@ -22,9 +24,23 @@ export class TipoperfilComponent implements OnInit {
   });
 
   public registrosExistentes;
+  public totalItens: number;
+  
   ngOnInit() {
+
+    this.apiService.GetAll()
+      .subscribe(d=> {
+        this.registrosExistentes = d["data"];
+        this.totalItens = parseInt(d["total"]);
+      })
+
+    this.config = {
+      itemsPerPage: 10,
+      currentPage: 1,
+      totalItens: this.totalItens
+    }
+
     this.titulo = "Cadastrar Tipo de Perfíl";
-    this.GetAll();
   }
 
   addTipoPerfil(ret){
@@ -36,15 +52,19 @@ export class TipoperfilComponent implements OnInit {
     this.apiService.AddTipoPerfil(obj)
       .subscribe(d=> {
         new AlertsComponent().ShowSwalAlert(d);
+        this.GetAll();
       });
+  }
+
+  pageChanged(event) {
+    this.config.currentPage = event;
   }
 
   GetAll() {
     this.apiService.GetAll()
-      .subscribe(d=> {
-        this.registrosExistentes = d;
-        console.log(this.registrosExistentes);
-      })
+        .subscribe(d=> {
+          this.registrosExistentes = d["data"];
+          this.totalItens = parseInt(d["total"]);
+        })
   }
-
 }

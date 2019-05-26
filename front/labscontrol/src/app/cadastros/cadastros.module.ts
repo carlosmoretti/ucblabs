@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastrosRoutingModule } from './cadastros-routing.module';
 import { TipoperfilComponent } from './tipoperfil/tipoperfil.component';
+import { DataTablesModule } from 'angular-datatables';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [TipoperfilComponent],
@@ -10,7 +12,9 @@ import { TipoperfilComponent } from './tipoperfil/tipoperfil.component';
     CommonModule,
     CadastrosRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule,
+    NgxPaginationModule
   ]
 })
 export class CadastrosModule { }

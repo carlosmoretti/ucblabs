@@ -10,3 +10,22 @@
   </div>
   <a (click)='addTipoPerfil(frm)' class="btn btn-primary btn-info-cs btn-sm text-white">Cadastrar</a>
 </form>
+
+<hr>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of registrosExistentes | paginate: config">
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.nome}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

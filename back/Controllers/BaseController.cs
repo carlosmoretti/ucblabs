@@ -22,5 +22,14 @@ namespace API.Controllers
                 mensagem = mensagem
             });
         }
+
+        public JsonResult GetResult<TEntity>(List<TEntity> lista)
+        {
+            return new JsonResult(new
+            {
+                total = lista.Count,
+                data = lista
+            });
+        }
     }
 }
