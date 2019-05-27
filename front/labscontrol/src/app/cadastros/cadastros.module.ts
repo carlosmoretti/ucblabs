@@ -6,9 +6,10 @@ import { TipoperfilComponent } from './tipoperfil/tipoperfil.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
+import { LaboratorioComponent } from './laboratorio/laboratorio.component';
 
 @NgModule({
-  declarations: [TipoperfilComponent, FornecedorComponent],
+  declarations: [TipoperfilComponent, FornecedorComponent, LaboratorioComponent],
   imports: [
     CommonModule,
     CadastrosRoutingModule,

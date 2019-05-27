@@ -21,6 +21,7 @@ namespace EFCore
         public DbSet<Entities.Pessoa> Pessoa { get; set; }
         public DbSet<Entities.TipoPerfil> TipoPerfil { get; set; }
         public DbSet<Entities.Fornecedor> Fornecedor { get; set; }
+        public DbSet<Entities.Laboratorio> Laboratorio { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

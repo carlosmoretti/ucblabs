@@ -29,4 +29,8 @@ export class AlertsComponent implements OnInit {
     }
   }
 
+  AlertError(mensagem) {
+    Swal.fire("Ops", mensagem, "error");
+  }
+
 }
