@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace back
 {
@@ -40,6 +41,12 @@ namespace back
             {
                 options.AddPolicy("CORS", corsBuilder.Build());
             });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "API do sistema", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +59,13 @@ namespace back
 
             app.UseMvc();
             app.UseCors("CORS");
+
+            app.UseSwagger();
+            app.UseSwaggerUI(d =>
+            {
+                d.SwaggerEndpoint("/swagger/v1/swagger.json", "API do sistema v1");
+                //d.RoutePrefix = string.Empty;
+            });
         }
     }
 }

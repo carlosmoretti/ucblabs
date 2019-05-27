@@ -6,13 +6,14 @@ using API.Controllers;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static API.Controllers.BaseController;
 
 namespace back.Controllers
 {
     [EnableCors("CORS")]
     [Route("api/[controller]")]
     [ApiController]
-    public class AgendaController : BaseController
+    public class AgendaController : ControllerBase
     {
         UnitOfWork.Implementation.UoW _uow;
         public AgendaController()
@@ -24,14 +25,14 @@ namespace back.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            return GetResult<Entities.TipoPerfil>(_uow.TipoPerfil.GetAll().ToList());
+            return BaseController.GetResult<Entities.TipoPerfil>(_uow.TipoPerfil.GetAll().ToList());
         }
 
         // GET: api/Agenda/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public JsonResult Get(int id)
         {
-            return "value";
+            return BaseController.GetResult<Entities.TipoPerfil>(_uow.TipoPerfil.Get(id));
         }
 
         // POST: api/Agenda
@@ -39,12 +40,12 @@ namespace back.Controllers
         public JsonResult Post(Entities.TipoPerfil tp)
         {
             if (_uow.TipoPerfil.GetAll().Any(d => d.Nome == tp.Nome))
-                return Retorno(TipoRetornoEnum.NOK, "Já existe um usuário com este nome.");
+                return BaseController.Retorno(TipoRetornoEnum.NOK, "Já existe um usuário com este nome.");
 
             _uow.TipoPerfil.Add(tp);
             _uow.Commit();
 
-            return Retorno(TipoRetornoEnum.OK, "Tipo de Perfil cadastrado com sucesso!");
+            return BaseController.Retorno(TipoRetornoEnum.OK, "Tipo de Perfil cadastrado com sucesso!");
         }
 
         // PUT: api/Agenda/5
@@ -53,10 +54,13 @@ namespace back.Controllers
         {
         }
 
-        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public JsonResult Deletar(int id)
         {
+            _uow.TipoPerfil.Remove(_uow.TipoPerfil.Get(id));
+            _uow.Commit();
+
+            return BaseController.Retorno(TipoRetornoEnum.OK, "Tipo de Perfil removido com sucesso!");
         }
     }
 }

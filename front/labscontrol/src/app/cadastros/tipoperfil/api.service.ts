@@ -23,4 +23,21 @@ export class ApiService {
   GetAll() {
     return this.http.get(apiUrl);
   }
+
+  Remove(id) {
+    var options = {
+      headers: new HttpHeaders(
+        {'Content-Type': 'application/json'},
+      ),
+      body: {
+        id: id
+      }
+    }
+
+    return this.http.delete(`${apiUrl}/${id}`);
+  }
+
+  Get(id) {
+    return this.http.get(`${apiUrl}/${id}`);
+  }
 }

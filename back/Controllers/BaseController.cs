@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    public class BaseController : ControllerBase
+    public static class BaseController
     {
         public enum TipoRetornoEnum
         {
@@ -14,7 +14,7 @@ namespace API.Controllers
             OK
         }
 
-        public JsonResult Retorno(TipoRetornoEnum retornoEnum, string mensagem)
+        public static JsonResult Retorno(TipoRetornoEnum retornoEnum, string mensagem)
         {
             return new JsonResult(new
             {
@@ -23,12 +23,21 @@ namespace API.Controllers
             });
         }
 
-        public JsonResult GetResult<TEntity>(List<TEntity> lista)
+        public static JsonResult GetResult<TEntity>(List<TEntity> lista)
         {
             return new JsonResult(new
             {
                 total = lista.Count,
                 data = lista
+            });
+        }
+
+        public static JsonResult GetResult<TEntity>(TEntity item)
+        {
+            return new JsonResult(new
+            {
+                total = 1,
+                data = item
             });
         }
     }

@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AlertsComponent } from './alerts/alerts.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GridComponent } from './grid/grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlertsComponent
+    AlertsComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,

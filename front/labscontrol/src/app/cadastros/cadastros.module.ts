@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastrosRoutingModule } from './cadastros-routing.module';
 import { TipoperfilComponent } from './tipoperfil/tipoperfil.component';
 import { DataTablesModule } from 'angular-datatables';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [TipoperfilComponent],
