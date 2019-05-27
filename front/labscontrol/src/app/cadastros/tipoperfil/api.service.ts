@@ -33,7 +33,6 @@ export class ApiService {
         id: id
       }
     }
-
     return this.http.delete(`${apiUrl}/${id}`);
   }
 

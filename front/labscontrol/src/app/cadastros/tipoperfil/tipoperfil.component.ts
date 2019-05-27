@@ -17,7 +17,7 @@ export class TipoperfilComponent implements OnInit {
 
   config: any;
 
-  constructor(private apiService: ApiService, private grid: GridComponent) { }
+  constructor(private apiService: ApiService) { }
 
   public titulo: string;
 
@@ -37,7 +37,7 @@ export class TipoperfilComponent implements OnInit {
       })
 
     this.config = new GridComponent().GridConfiguration(this.totalItens);
-    this.titulo = "Cadastrar Tipo de Perfíl";
+    this.titulo = "Cadastrar Tipo de Perfil";
   }
 
   addTipoPerfil(ret){

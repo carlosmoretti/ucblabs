@@ -8,6 +8,7 @@ namespace UnitOfWork.Implementation
     {
         private DAL.DALPessoa _dalPessoa;
         private DAL.DALTipoPerfil _dalTipoPerfil;
+        private DAL.DALFornecedor _dalFornecedor;
 
         EFCore.Contexto _contexto;
         public UoW()
@@ -24,7 +25,6 @@ namespace UnitOfWork.Implementation
                 return _dalTipoPerfil;
             }
         }
-
         public DAL.DALPessoa Pessoa
         {
             get
@@ -32,6 +32,16 @@ namespace UnitOfWork.Implementation
                 if (_dalPessoa == null)
                     _dalPessoa = new DAL.DALPessoa(_contexto);
                 return _dalPessoa;
+            }
+        }
+        public DAL.DALFornecedor Fornecedor
+        {
+            get
+            {
+                if (_dalFornecedor == null)
+                    _dalFornecedor = new DAL.DALFornecedor(_contexto);
+
+                return _dalFornecedor;
             }
         }
 

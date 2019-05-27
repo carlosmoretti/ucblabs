@@ -16,14 +16,12 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Item</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of registrosExistentes | paginate: config">
-      <th scope="row">{{item.id}}</th>
       <td>{{item.nome}}</td>
       <td><a (click)='Remove(item.id)' class="btn btn-danger rounded-0 btn-sm text-white">Remover</a></td>
     </tr>

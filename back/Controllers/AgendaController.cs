@@ -11,7 +11,7 @@ using static API.Controllers.BaseController;
 namespace back.Controllers
 {
     [EnableCors("CORS")]
-    [Route("api/[controller]")]
+    [Route("api/agenda")]
     [ApiController]
     public class AgendaController : ControllerBase
     {
@@ -29,7 +29,7 @@ namespace back.Controllers
         }
 
         // GET: api/Agenda/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public JsonResult Get(int id)
         {
             return BaseController.GetResult<Entities.TipoPerfil>(_uow.TipoPerfil.Get(id));

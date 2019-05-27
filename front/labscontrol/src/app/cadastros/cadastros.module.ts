@@ -5,9 +5,10 @@ import { CadastrosRoutingModule } from './cadastros-routing.module';
 import { TipoperfilComponent } from './tipoperfil/tipoperfil.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FornecedorComponent } from './fornecedor/fornecedor.component';
 
 @NgModule({
-  declarations: [TipoperfilComponent],
+  declarations: [TipoperfilComponent, FornecedorComponent],
   imports: [
     CommonModule,
     CadastrosRoutingModule,
