@@ -30,7 +30,28 @@ export class AlertsComponent implements OnInit {
   }
 
   AlertError(mensagem) {
-    Swal.fire("Ops", mensagem, "error");
+    Swal.fire("Ops...", mensagem, "error");
+  }
+
+  RemoveWithMessage(entidade, funcao, id, getAll) {
+    Swal.fire({
+      title: "Você tem certeza?",
+      text: "Você estará removendo este " + entidade + ".",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, desejo remover.',
+      cancelButtonText: "Cancelar",
+    }).then(e=> {
+      if(e.value) {
+        funcao(id)
+          .subscribe(d=> {
+            new AlertsComponent().ShowSwalAlert(d);
+            getAll();
+          })
+      }
+    })
   }
 
 }

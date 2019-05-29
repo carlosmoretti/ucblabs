@@ -7,9 +7,10 @@ import { DataTablesModule } from 'angular-datatables';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { LaboratorioComponent } from './laboratorio/laboratorio.component';
+import { DisciplinaComponent } from './disciplina/disciplina.component';
 
 @NgModule({
-  declarations: [TipoperfilComponent, FornecedorComponent, LaboratorioComponent],
+  declarations: [TipoperfilComponent, FornecedorComponent, LaboratorioComponent, DisciplinaComponent],
   imports: [
     CommonModule,
     CadastrosRoutingModule,

@@ -6,56 +6,54 @@ import { GridComponent } from '../../grid/grid.component';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-laboratorio',
-  templateUrl: './laboratorio.component.html',
-  styleUrls: ['./laboratorio.component.css']
+  selector: 'app-disciplina',
+  templateUrl: './disciplina.component.html',
+  styleUrls: ['./disciplina.component.css']
 })
-export class LaboratorioComponent implements OnInit {
-
-  public config: any;
-  public registros:any;
-  public itensTotal: number;
+export class DisciplinaComponent implements OnInit {
 
   constructor(private api: ApiService) { }
 
-  public titulo: string;
+  public registros: any;
+  public totalitens: any;
+  public config: any;
+  
 
-  public laboratorio = new FormGroup({
-    Sala: new FormControl(''),
-    Capacidade: new FormControl('')
+  public titulo: string;
+  public Disciplina = new FormGroup({
+    Nome: new FormControl('')
   })
 
   ngOnInit() {
     this.GetAll();
-
-    this.config = new GridComponent().GridConfiguration(this.itensTotal);
-    this.titulo = "Cadastrar laboratório"
+    this.config = new GridComponent().GridConfiguration(this.totalitens);
+    this.titulo = "Cadastrar Disciplina";
   }
 
-  AddLaboratorio(obj) {
+  AdicionarDisciplina(obj) {
 
-    if(obj.value.Sala == "" || obj.value.Capacidade == "")
-      new AlertsComponent().AlertError("Todos os campos são obrigatórios");
+    if(obj.value.Nome == "")
+      new AlertsComponent().AlertError("A disciplina precisa de um nome.");
 
-    this.api.AddLaboratorio(obj)
+    this.api.AdicionarDisciplina(obj)
       .subscribe(d=> {
-        new AlertsComponent().ShowSwalAlert(d);
         this.GetAll();
+        new AlertsComponent().ShowSwalAlert(d);
       })
   }
 
   GetAll() {
     this.api.GetAll()
       .subscribe(d=> {
-        this.registros = d["data"];
-        this.itensTotal = parseInt(d["total"]);
+        this.registros = d["data"],
+        this.totalitens = d["total"]
       })
   }
 
-  RemoverLaboratorio(id) {
+  RemoverDisciplina(id) {
     Swal.fire({
       title: "Você tem certeza?",
-      text: "Você estará removendo este laboratório.",
+      text: "Você estará removendo este tipo de perfil.",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -64,7 +62,7 @@ export class LaboratorioComponent implements OnInit {
       cancelButtonText: "Cancelar",
     }).then(e=> {
       if(e.value) {
-        this.api.RemoverLaboratorio(id)
+        this.api.RemoverDisciplina(id)
         .subscribe(d=> {
           new AlertsComponent().ShowSwalAlert(d);
           this.GetAll();

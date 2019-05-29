@@ -26,4 +26,8 @@ export class ApiService {
     return this.http.get(apiUrl);
   }
 
+  RemoverLaboratorio(id) {
+    return this.http.delete(`${apiUrl}/${id}`);
+  }
+
 }

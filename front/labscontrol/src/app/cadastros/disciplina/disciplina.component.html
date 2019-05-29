@@ -1,0 +1,31 @@
+<a routerLink='/' class="btn btn-light btn-sm btn-light-cs mr-2"><i class="fas fa-angle-double-left"></i> Voltar</a>
+
+<h3 class="pt-3">{{titulo}}</h3>
+<hr>
+
+<form [formGroup]="Disciplina">
+  <div class="form-group">
+    <label>Disciplina</label>
+    <input class="form-control w-25" formControlName="Nome">
+  </div>
+  <a (click)='AdicionarDisciplina(Disciplina)' class="btn btn-primary btn-info-cs btn-sm text-white">Cadastrar</a>
+</form>
+
+<hr>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of registros | paginate: config">
+      <td>{{item.nome}}</td>
+      <td><a (click)='RemoverDisciplina(item.id)' class="btn btn-danger rounded-0 btn-sm text-white">Remover</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
