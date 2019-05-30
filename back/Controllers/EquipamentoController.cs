@@ -31,6 +31,11 @@ namespace API.Controllers
         [HttpPost]
         public JsonResult Post(Entities.Equipamento equipamento)
         {
+            if (string.IsNullOrEmpty(equipamento.NotaFiscal)
+                || string.IsNullOrEmpty(equipamento.NumeroSerie)
+                || string.IsNullOrEmpty(equipamento.Serial))
+                return BaseController.Retorno(BaseController.TipoRetornoEnum.NOK, "Todos os campos devem ser preenchidos!");
+
             var total = _uow.Equipamento.GetAll().ToList();
             if (total.Any(d => d.NumeroSerie == equipamento.NumeroSerie))
                 return BaseController.Retorno(BaseController.TipoRetornoEnum.NOK, "Este Número de Série já está associado a outro equipamento");
