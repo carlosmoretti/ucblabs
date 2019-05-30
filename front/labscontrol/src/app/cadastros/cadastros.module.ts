@@ -8,9 +8,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { LaboratorioComponent } from './laboratorio/laboratorio.component';
 import { DisciplinaComponent } from './disciplina/disciplina.component';
+import { ItensconfiguracaoComponent } from './itensconfiguracao/itensconfiguracao.component';
 
 @NgModule({
-  declarations: [TipoperfilComponent, FornecedorComponent, LaboratorioComponent, DisciplinaComponent],
+  declarations: [TipoperfilComponent, FornecedorComponent, LaboratorioComponent, DisciplinaComponent, ItensconfiguracaoComponent],
   imports: [
     CommonModule,
     CadastrosRoutingModule,
