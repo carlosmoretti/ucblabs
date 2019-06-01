@@ -9,6 +9,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AlertsComponent } from './alerts/alerts.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GridComponent } from './grid/grid.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GridComponent } from './grid/grid.component';
     FormsModule,
     HttpClientModule,
     SweetAlert2Module,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
