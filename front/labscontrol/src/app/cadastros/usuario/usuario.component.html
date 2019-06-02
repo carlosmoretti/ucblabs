@@ -2,4 +2,27 @@
 
 <h3 class="pt-3">{{titulo}}</h3>
 <hr>
-<a routerLink='cadastrar' class="btn btn-primary btn-sm btn-info-cs mr-2"><i class="fas fa-plus-circle"></i> Cadastrar Novo Usuário</a>
+<a routerLink='cadastrar' class="btn btn-primary btn-sm btn-info-cs mr-2 mb-3"><i class="fas fa-plus-circle"></i> Cadastrar Novo Usuário</a>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Matrícula</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Perfis</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pessoas | paginate: config">
+        <td>{{item.nome}}</td>
+        <td>{{item.matricula}}</td>
+        <td>{{item.cpf}}</td>
+        <td><a class="badge badge-primary mr-1 text-white" *ngFor="let item of item.tipoPerfil">{{item.tipoPerfil.nome}}</a></td>
+        <td><a (click)='Remove(item.id)' class="btn btn-danger rounded-0 btn-sm text-white">Remover</a></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

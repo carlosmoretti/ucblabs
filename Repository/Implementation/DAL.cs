@@ -13,27 +13,27 @@ namespace DAL.Implementation
             _contexto = contexto;
         }
 
-        public void Add(TEntity entity)
+        public virtual void Add(TEntity entity)
         {
             _contexto.Set<TEntity>().Add(entity);
         }
 
-        public TEntity Get(int id)
+        public virtual TEntity Get(int id)
         {
             return _contexto.Set<TEntity>().Find(id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             return _contexto.Set<TEntity>();
         }
 
-        public void Remove(TEntity entity)
+        public virtual void Remove(TEntity entity)
         {
             _contexto.Remove(entity);
         }
 
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             _contexto.Set<TEntity>().Attach(entity);
         }

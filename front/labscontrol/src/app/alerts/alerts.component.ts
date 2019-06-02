@@ -33,6 +33,28 @@ export class AlertsComponent implements OnInit {
     Swal.fire("Ops...", mensagem, "error");
   }
 
+  ShowError(coderro) {
+    var errosColumns = [];
+    var mensagem = "";
+
+    console.log(coderro);
+
+    for(var i in coderro.error) {
+      if(coderro.error[i][0].indexOf("tório") > -1) {
+        mensagem += coderro.error[i][0] + "<hr/>";
+      }
+    }
+
+    if(mensagem == "")
+      mensagem = "Encontramos alguns problemas, verifique todos os campos e tente novamente.";
+
+    Swal.fire({
+      title: "Ops...",
+      type: "error",
+      html: mensagem
+    })
+  }
+
   RemoveWithMessage(entidade, funcao, id, getAll) {
     Swal.fire({
       title: "Você tem certeza?",

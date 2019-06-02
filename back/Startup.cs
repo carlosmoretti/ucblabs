@@ -13,11 +13,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Proxies;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.Extensions.Logging.Console;
 
 namespace back
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,13 +31,28 @@ namespace back
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<EFCore.Contexto>(d => d.UseSqlServer("Server=den1.mssql8.gear.host;Database=laboratoriosucb;User Id=laboratoriosucb;Password=Fg99M!!uVUt1;"));
+
+            services.AddMvc(d=>
+            {
+                d.Filters.Add(typeof(ValidationActionFilter));
+            })
+            .AddJsonOptions(d =>
+            {
+                d.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
+
+            services.AddDbContext<EFCore.Contexto>(d => {
+                d.UseSqlServer("Server=den1.mssql8.gear.host;Database=laboratoriosucb;User Id=laboratoriosucb;Password=Fg99M!!uVUt1;");
+                d.UseLoggerFactory(new LoggerFactory().AddConsole((category, level) =>
+                level == LogLevel.Information &&
+                   category == DbLoggerCategory.Database.Command.Name, true)); ;
+            });
 
             var corsBuilder = new CorsPolicyBuilder();
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();
             corsBuilder.AllowAnyOrigin(); // For anyone access.
-            //corsBuilder.WithOrigins("http://localhost:56573"); // for a specific url. Don't add a forward slash on the end!
+            corsBuilder.WithOrigins("http://localhost:4200"); // for a specific url. Don't add a forward slash on the end!
             corsBuilder.AllowCredentials();
 
             services.AddCors(options =>

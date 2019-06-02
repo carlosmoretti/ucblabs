@@ -10,5 +10,8 @@ namespace Entities
     {
         [Column("Nome")]
         public string Nome { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<UsuarioTipoPerfil> Usuario { get; set; }
     }
 }

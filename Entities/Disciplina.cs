@@ -12,5 +12,8 @@ namespace Entities
         [Column("Nome")]
         [Required(ErrorMessage = "O campo Nome é obrigatório")]
         public string Nome { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<UsuarioDisciplina> Usuario { get; set; }
     }
 }
