@@ -46,10 +46,12 @@ export class TipoperfilComponent implements OnInit {
       id: 0
     }
 
-    this.apiService.AddTipoPerfil(obj)
+    this.apiService.AddTipoPerfil(ret.value)
       .subscribe(d=> {
         new AlertsComponent().ShowSwalAlert(d);
         this.GetAll();
+      }, e => {
+        new AlertsComponent().ShowError(e);
       });
   }
 
@@ -70,7 +72,6 @@ export class TipoperfilComponent implements OnInit {
     this.apiService.Get(id)
       .subscribe(d=> {
         saida = d;
-        console.log(d);
       });
 
     Swal.fire({
