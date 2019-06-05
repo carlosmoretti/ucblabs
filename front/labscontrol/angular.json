@@ -26,10 +26,10 @@
               "node_modules/bootstrap/css/bootstrap.min.css",
               "node_modules/bootstrap/css/bootstrap-grid.min.css",
               "node_modules/bootstrap/css/bootstrap-reboot.min.css",
-              "src/styles.css",
-              "src/custom.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
-              "node_modules/bootstrap-multiselect/bootstrap-multiselect.css"
+              "node_modules/bootstrap-multiselect/bootstrap-multiselect.css",
+              "src/styles.css",
+              "src/custom.css"
             ],
             "scripts": [
               "node_modules/jquery/jquery.min.js",
@@ -98,10 +98,10 @@
               "node_modules/bootstrap/css/bootstrap.min.css",
               "node_modules/bootstrap/css/bootstrap-grid.min.css",
               "node_modules/bootstrap/css/bootstrap-reboot.min.css",
-              "src/styles.css",
-              "src/custom.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
-              "node_modules/bootstrap-multiselect/bootstrap-multiselect.css"
+              "node_modules/bootstrap-multiselect/bootstrap-multiselect.css",
+              "src/styles.css",
+              "src/custom.css"
             ],
             "scripts": [
               "node_modules/jquery/jquery.min.js",

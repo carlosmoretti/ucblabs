@@ -39,8 +39,8 @@ export class DisciplinaComponent implements OnInit {
 
     this.api.AdicionarDisciplina(obj)
       .subscribe(d=> {
-        this.GetAll();
         new AlertsComponent().ShowSwalAlert(d);
+        this.GetAll();
       })
   }
 

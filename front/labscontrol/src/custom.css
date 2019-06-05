@@ -1,3 +1,7 @@
 .nav-wraper {
     box-shadow: 0px 0px 0px 0px;
 }
+
+.swal2-container {
+    z-index: 99999999999999 !important;
+}
