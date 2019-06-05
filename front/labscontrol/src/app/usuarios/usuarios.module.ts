@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { IndexComponent } from './index/index.component';
+import { BlockUIModule } from 'ng-block-ui';
 
 @NgModule({
   declarations: [IndexComponent],
   imports: [
     CommonModule,
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
+    BlockUIModule.forRoot()
   ]
 })
 export class UsuariosModule { }

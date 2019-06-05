@@ -9,6 +9,6 @@ namespace API.ViewModels
     {
         public Entities.Pessoa Pessoa { get; set; }
         public List<Entities.TipoPerfil> TipoPerfil { get; set; }
-        public Entities.Disciplina Disciplina { get; set; }
+        public int[] Disciplinas { get; set; }
     }
 }

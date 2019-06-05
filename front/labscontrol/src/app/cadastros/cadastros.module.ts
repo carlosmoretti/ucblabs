@@ -12,6 +12,7 @@ import { ItensconfiguracaoComponent } from './itensconfiguracao/itensconfiguraca
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
+import { BlockUIModule } from 'ng-block-ui';
 
 @NgModule({
   declarations: [TipoperfilComponent, FornecedorComponent, LaboratorioComponent, DisciplinaComponent, ItensconfiguracaoComponent, UsuarioComponent, UsuarioDetailComponent],
@@ -22,7 +23,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
     ReactiveFormsModule,
     DataTablesModule,
     NgxPaginationModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    BlockUIModule.forRoot()
   ]
 })
 export class CadastrosModule { }

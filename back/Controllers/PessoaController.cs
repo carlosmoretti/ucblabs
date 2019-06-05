@@ -28,12 +28,19 @@ namespace API.Controllers
             return BaseController.GetResult<Entities.Pessoa>(_uow.Pessoa.GetAll().ToList());
         }
 
+        [HttpGet("{id}", Name = "PessoaGet")]
+        public JsonResult Get(int id)
+        {
+            return BaseController.GetResult<Entities.Pessoa>(_uow.Pessoa.Get(id));
+        }
+
         // POST: api/Pessoa
         [HttpPost]
         public JsonResult Post(ViewModels.PessoaViewModel pessoa)
         {
             var todasPessoas = _uow.Pessoa.GetAll();
 
+            #region [ Validações ]
             if (todasPessoas.Any(d => d.Matricula == pessoa.Pessoa.Matricula))
                 return BaseController.Retorno(BaseController.TipoRetornoEnum.NOK, "Já existe uma pessoa com esta matricula.");
 
@@ -46,6 +53,8 @@ namespace API.Controllers
             if(pessoa.TipoPerfil.Count == 0)
                 return BaseController.Retorno(BaseController.TipoRetornoEnum.NOK, "É necessário escolher ao menos um perfil para este usuário!");
 
+            #endregion
+
             _uow.Pessoa.Add(pessoa.Pessoa);
             _uow.Commit();
 
@@ -57,6 +66,16 @@ namespace API.Controllers
                     TipoPerfilId = item.Id
                 });
             }
+
+            foreach(var item in pessoa.Disciplinas)
+            {
+                _uow.UsuarioDisciplina.Add(new Entities.UsuarioDisciplina()
+                {
+                    UsuarioId = pessoa.Pessoa.Id,
+                    DisciplinaId = item
+                });
+            }
+
             _uow.Commit();
 
             return BaseController.Retorno(BaseController.TipoRetornoEnum.OK, "Pessoa cadastrada com sucesso!");

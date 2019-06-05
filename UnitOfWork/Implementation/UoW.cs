@@ -14,6 +14,7 @@ namespace UnitOfWork.Implementation
         private DAL.DALEquipamento _dalEquipamento;
         private DAL.DALTipoEquipamento _dalTipoEquipamento;
         private DAL.DALUsuarioTipoPerfil _dalUsuarioTipoPerfil;
+        private DAL.DALUsuarioDisciplina _dalUsuarioDisciplina;
 
         EFCore.Contexto _contexto;
         public UoW()
@@ -93,6 +94,15 @@ namespace UnitOfWork.Implementation
                 if (_dalUsuarioTipoPerfil == null)
                     _dalUsuarioTipoPerfil = new DAL.DALUsuarioTipoPerfil(_contexto);
                 return _dalUsuarioTipoPerfil;
+            }
+        }
+        public DAL.DALUsuarioDisciplina UsuarioDisciplina
+        {
+            get
+            {
+                if (_dalUsuarioDisciplina == null)
+                    _dalUsuarioDisciplina = new DAL.DALUsuarioDisciplina(_contexto);
+                return _dalUsuarioDisciplina;
             }
         }
 

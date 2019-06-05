@@ -4,6 +4,7 @@ import { ApiService } from './api.service';
 import { AlertsComponent } from '../../alerts/alerts.component';
 import { GridComponent } from 'src/app/grid/grid.component';
 import Swal from 'sweetalert2';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-itensconfiguracao',
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class ItensconfiguracaoComponent implements OnInit {
 
+  @BlockUI() blockUI: NgBlockUI;
   constructor(private api: ApiService) { }
 
   public titulo: string;
@@ -34,28 +36,33 @@ export class ItensconfiguracaoComponent implements OnInit {
   ngOnInit() {
     this.titulo = "Cadastro de Itens de Configuração";
 
-    this.api.GetAllEquipamento()
-      .subscribe(d=> { this.itens = d["data"]; console.log(d["data"]); this.totalItens =  d["total"]});
+    // this.api.GetAllEquipamento()
+    //   .subscribe(d=> { this.itens = d["data"]; console.log(d["data"]); this.totalItens =  d["total"]});
 
-    this.api.GetAllTipos()
-      .subscribe(d=> { 
-        this.TipoItens = d["data"]; 
-        console.log(this.TipoItens); 
-      });
-
-      this.config = new GridComponent().GridConfiguration(this.totalItens)
+    // this.api.GetAllTipos()
+    //   .subscribe(d=> { 
+    //     this.TipoItens = d["data"]; 
+    //     console.log(this.TipoItens); 
+    //   });
+    this.GetAllEquipamentos();
+    this.GetAllTipoConfiguracao();
+    this.config = new GridComponent().GridConfiguration(this.totalItens)
   }
 
   GetAllTipoConfiguracao() {
+    this.blockUI.start();
     return this.api.GetAllTipos()
       .subscribe(d=> {
+        this.blockUI.stop();
         this.TipoItens = d["data"];
       })
   }
 
   GetAllEquipamentos() {
+    this.blockUI.start();
     return this.api.GetAllEquipamento()
       .subscribe(d=> {
+        this.blockUI.stop();
         this.itens = d["data"];
         this.totalItens = d["total"];
       })

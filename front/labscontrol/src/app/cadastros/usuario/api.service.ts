@@ -17,4 +17,8 @@ export class ApiService {
   Remove(id) {
     return this.http.delete(`${urlPessoa}/${id}`);
   }
+
+  GetPessoa(id) {
+    return this.http.get(`${urlPessoa}/${id}`);
+  }
 }

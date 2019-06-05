@@ -4,6 +4,7 @@ import { ApiService } from './api.service';
 import { AlertsComponent } from '../../alerts/alerts.component';
 import { GridComponent } from '../../grid/grid.component';
 import Swal from 'sweetalert2';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-laboratorio',
@@ -11,6 +12,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./laboratorio.component.css']
 })
 export class LaboratorioComponent implements OnInit {
+
+  @BlockUI() blockUI: NgBlockUI;
 
   public config: any;
   public registros:any;
@@ -45,8 +48,10 @@ export class LaboratorioComponent implements OnInit {
   }
 
   GetAll() {
+    this.blockUI.start();
     this.api.GetAll()
       .subscribe(d=> {
+        this.blockUI.stop();
         this.registros = d["data"];
         this.itensTotal = parseInt(d["total"]);
       })

@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import { GridComponent } from '../../grid/grid.component';
 import { AlertsComponent } from '../../alerts/alerts.component';
 import Swal from 'sweetalert2';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-usuario',
@@ -10,10 +11,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-
+  @BlockUI() blockUI: NgBlockUI;
+  
   public pessoas: any;
   public totalpessoas: any;
   public config: any;
+  public stringdis: string;
 
   public titulo: string;
   constructor(private api: ApiService) { }
@@ -25,8 +28,10 @@ export class UsuarioComponent implements OnInit {
   }
 
   GetAllPessoas() {
+    this.blockUI.start();
     this.api.GetAllPessoas()
       .subscribe(d=> {
+        this.blockUI.stop();
         console.log(d["data"]);
         this.pessoas = d["data"];
         this.totalpessoas = d["total"];
@@ -35,6 +40,34 @@ export class UsuarioComponent implements OnInit {
 
   pageChanged(event) {
     this.config.currentPage = event;
+  }
+
+  VerDisciplinas(id) {
+    this.blockUI.start();
+    this.stringdis = "Carregando..."
+    var disciplinas;
+
+    this.api.GetPessoa(id)
+      .subscribe(d=> {
+        this.blockUI.stop();
+        disciplinas = d["data"]["disciplina"];
+        console.log(disciplinas);
+        this.blockUI.stop();
+
+        this.stringdis = "";
+        for(var i =0; i < disciplinas.length; i++) {
+          this.stringdis += disciplinas[i]["disciplina"]["nome"] + "<br>";
+        }
+
+        if(this.stringdis == "")
+          this.stringdis = "Este usuário não possui disciplinas associadas.";
+
+        Swal.fire({
+          title: "Disciplinas do Usuário",
+          html: this.stringdis,
+          type: "info"
+        });
+      })
   }
 
   Remove(id) {

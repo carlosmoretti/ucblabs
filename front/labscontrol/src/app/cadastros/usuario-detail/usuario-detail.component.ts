@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ApiService } from './api.service';
 import { AlertsComponent } from '../../alerts/alerts.component';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 declare var multiselect:any
 
@@ -11,7 +12,7 @@ declare var multiselect:any
   styleUrls: ['./usuario-detail.component.css']
 })
 export class UsuarioDetailComponent implements OnInit {
-  
+  @BlockUI() blockUI: NgBlockUI;
 
   dropdownTipoPerfil = [];
   dropdownTipoPerfilSel = [];
@@ -34,10 +35,17 @@ export class UsuarioDetailComponent implements OnInit {
 
   ngOnInit() {
     this.titulo = "Cadastrar Pessoa";
+    this.GetAllTiposPerfis();
+    this.GetAllDisciplinas();
+  }
 
+  GetAllTiposPerfis() {
     var tiposPerfis: any;
+
+    this.blockUI.start();
     this.api.GetAllTipoPerfil()
       .subscribe(d=> {
+        this.blockUI.stop();
         tiposPerfis = d["data"]; 
           for(var i =0; i < parseInt(d["total"]); i++) {
             this.dropdownTipoPerfil.push({
@@ -47,16 +55,19 @@ export class UsuarioDetailComponent implements OnInit {
             })
           }
       })
+  }
 
+  GetAllDisciplinas() {
+    this.blockUI.start();
     this.api.GetAllDisciplina()
       .subscribe(d=> {
+        this.blockUI.stop();
         this.listadisciplina = d["data"];
         console.log(d["data"]);
       })
   }
 
   toggle(e) {
-
     if(this.dropdownTipoPerfil.find(d=> d.item_id == e).item_class == "badge-success") {
       this.dropdownTipoPerfil.find(d=> d.item_id == e).item_class = "badge-dark";
       return;
@@ -69,8 +80,8 @@ export class UsuarioDetailComponent implements OnInit {
   }
 
   CadastrarPessoa(obj) {
+    this.blockUI.start();
     var manda = obj.value;
-    var perfsTest = this.dropdownTipoPerfil.find(d=> d.item_class == "badge-success");
 
     // Monta Tipos de Pessoa
     var tipos = [];
@@ -86,11 +97,13 @@ export class UsuarioDetailComponent implements OnInit {
 
     var objeto = {
       Pessoa: manda,
-      TipoPerfil: tipos
+      TipoPerfil: tipos,
+      Disciplinas: manda.Disciplinas
     }
 
     this.api.CadastrarPessoa(objeto)
       .subscribe(data => {
+        this.blockUI.stop();
         new AlertsComponent().ShowSwalAlert(data);
       }, e => {
         console.log(e);

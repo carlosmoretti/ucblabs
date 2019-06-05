@@ -4,6 +4,7 @@ import { GridComponent } from '../../grid/grid.component';
 import { ApiService } from './api.service';
 import { AlertsComponent } from '../../alerts/alerts.component';
 import Swal from 'sweetalert2';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-fornecedor',
@@ -11,6 +12,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./fornecedor.component.css']
 })
 export class FornecedorComponent implements OnInit {
+
+  @BlockUI() blockUI: NgBlockUI;
 
   config: any;
   public registros:any;
@@ -26,7 +29,6 @@ export class FornecedorComponent implements OnInit {
 
   ngOnInit() {
     this.GetAll();
-
     this.titulo = "Cadastrar Fornecedor"
     this.config = new GridComponent().GridConfiguration(this.totalItens);
   }
@@ -41,8 +43,10 @@ export class FornecedorComponent implements OnInit {
   }
 
   GetAll() {
+    this.blockUI.start();
     return this.api.GetAll()
       .subscribe(d=> {
+        this.blockUI.stop();
         console.log(d);
         this.registros = d["data"];
         this.totalItens = parseInt(d["total"]);

@@ -6,6 +6,7 @@ import { SwalComponent } from '@sweetalert2/ngx-sweetalert2/swal.component'
 import { AlertsComponent } from '../../alerts/alerts.component';
 import Swal from 'sweetalert2';
 import { GridComponent } from '../../grid/grid.component';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-tipoperfil',
@@ -14,7 +15,7 @@ import { GridComponent } from '../../grid/grid.component';
 })
 
 export class TipoperfilComponent implements OnInit {
-
+  @BlockUI() blockUI: NgBlockUI;
   config: any;
 
   constructor(private apiService: ApiService) { }
@@ -29,9 +30,10 @@ export class TipoperfilComponent implements OnInit {
   public totalItens: number;
   
   ngOnInit() {
-
+    this.blockUI.start();
     this.apiService.GetAll()
       .subscribe(d=> {
+        this.blockUI.stop();
         this.registrosExistentes = d["data"];
         this.totalItens = parseInt(d["total"]);
       })

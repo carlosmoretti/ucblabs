@@ -10,6 +10,7 @@ import { AlertsComponent } from './alerts/alerts.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GridComponent } from './grid/grid.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
+import { BlockUIModule } from 'ng-block-ui';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
     HttpClientModule,
     SweetAlert2Module,
     NgxPaginationModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    BlockUIModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

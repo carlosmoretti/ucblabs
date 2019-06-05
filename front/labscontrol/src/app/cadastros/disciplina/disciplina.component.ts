@@ -4,6 +4,7 @@ import { ApiService } from './api.service';
 import { AlertsComponent } from '../../alerts/alerts.component';
 import { GridComponent } from '../../grid/grid.component';
 import Swal from 'sweetalert2';
+import { BlockUI, NgBlockUI} from 'ng-block-ui';
 
 @Component({
   selector: 'app-disciplina',
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class DisciplinaComponent implements OnInit {
 
+  @BlockUI() blockUI: NgBlockUI;
   constructor(private api: ApiService) { }
 
   public registros: any;
@@ -43,8 +45,10 @@ export class DisciplinaComponent implements OnInit {
   }
 
   GetAll() {
+    this.blockUI.start();
     this.api.GetAll()
       .subscribe(d=> {
+        this.blockUI.stop();
         this.registros = d["data"],
         this.totalitens = d["total"]
       })
