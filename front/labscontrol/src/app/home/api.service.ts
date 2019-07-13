@@ -7,17 +7,10 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const apiUrl = "http://localhost:26142/api/values";
-
 @Injectable({
   providedIn: 'root'
 })
 
 export class ApiService {
   constructor(private http: HttpClient) { }
-
-  getAgenda() {
-    return this.http.get(apiUrl)
-      .subscribe(d=> console.log(d));
-  }
 }

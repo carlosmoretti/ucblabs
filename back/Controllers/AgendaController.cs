@@ -62,5 +62,11 @@ namespace back.Controllers
 
             return BaseController.Retorno(TipoRetornoEnum.OK, "Tipo de Perfil removido com sucesso!");
         }
+
+        [HttpGet("professores", Name = "GetProfessores")]
+        public JsonResult Professores()
+        {
+            return BaseController.GetResult<object>(_uow.Pessoa.GetAllProfessores().ToList());
+        }
     }
 }

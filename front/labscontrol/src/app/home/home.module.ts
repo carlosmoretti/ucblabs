@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { IndexComponent } from './index/index.component';
-import { AgendarComponent } from './agendar/agendar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [IndexComponent, AgendarComponent],
+  declarations: [IndexComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

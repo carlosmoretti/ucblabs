@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, platformBrowser } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,12 +11,19 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { GridComponent } from './grid/grid.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
 import { BlockUIModule } from 'ng-block-ui';
+import { AgendamentoComponent } from './agenda/agendamento/agendamento.component';
+import { AgendamentodetailComponent } from './agenda/agendamentodetail/agendamentodetail.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxTypeaheadModule } from 'ngx-typeahead';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlertsComponent,
-    GridComponent
+    GridComponent,
+    AgendamentoComponent,
+    AgendamentodetailComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +33,13 @@ import { BlockUIModule } from 'ng-block-ui';
     SweetAlert2Module,
     NgxPaginationModule,
     NgMultiSelectDropDownModule.forRoot(),
-    BlockUIModule.forRoot()
+    BlockUIModule.forRoot(),
+    ReactiveFormsModule,
+    NgxTypeaheadModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
