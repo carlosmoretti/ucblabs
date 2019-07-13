@@ -42,7 +42,7 @@ namespace back
             });
 
             services.AddDbContext<EFCore.Contexto>(d => {
-                d.UseSqlServer("Server=den1.mssql8.gear.host;Database=laboratoriosucb;User Id=laboratoriosucb;Password=Fg99M!!uVUt1;");
+                d.UseSqlServer("Server=AAAAAA;Database=XXXX;User Id=DDDDD;Password=KKKK;");
                 d.UseLoggerFactory(new LoggerFactory().AddConsole((category, level) =>
                 level == LogLevel.Information &&
                    category == DbLoggerCategory.Database.Command.Name, true)); ;
