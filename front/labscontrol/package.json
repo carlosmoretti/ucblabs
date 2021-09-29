@@ -24,7 +24,7 @@
     "angular-datatables": "^7.0.0",
     "angular2-materialize": "^15.1.10",
     "core-js": "^2.5.4",
-    "datatables.net": "^1.10.19",
+    "datatables.net": "^1.11.3",
     "datatables.net-dt": "^1.10.19",
     "jquery": "^3.4.1",
     "materialize-css": "^1.0.0",
